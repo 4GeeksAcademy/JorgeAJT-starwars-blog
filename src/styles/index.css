@@ -1,3 +1,15 @@
 /* 
     General Styles
 */
+body {
+    background-image: url("https://wallpapers.com/downloads/high/star-wars-space-background-1920-x-1080-f1o3qr8zm0z4662c.webp");
+}
+.sw-logo {
+    width: 150px
+}
+.fa-book-journal-whills {
+    color: #ffe81f
+}
+.items-left {
+    background-color: #ffc107;
+ }

@@ -14,18 +14,15 @@ export const Planets = () => {
 	<div className="text-center mt-5">
 		<h1>Planets</h1>
 		<div className="row d-flex">
-		{store.planets.map((planet, index) => 
-		<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-			<Card 
-			key={index+1}
-			title={planet.name}
-			/>
+			{store.planets.map((planet, index) => 
+			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 
+				key={"p" + index+1}
+				title={planet.name}
+				/>
+			</div>
+			)}
 		</div>
-		)}
-		</div>
-        <Link to="/">
-			<button className="btn btn-primary">Back home</button>
-		</Link>
 	</div>
 	);
 }

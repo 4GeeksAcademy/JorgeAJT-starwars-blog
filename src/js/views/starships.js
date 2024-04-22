@@ -16,19 +16,16 @@ export const Starships = () => {
 	<div className="text-center mt-5">
 		<h1>Starships</h1>
 		<div className="row d-flex">
-		{store.starships.map((starship, index) => 
-		<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-			<Card 
-			key={index+1}
-            image={starship3}
-			title={starship.name}
-			/>
+			{store.starships.map((starship, index) => 
+			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 
+				key={"st" + index+1}
+				image={starship3}
+				title={starship.name}
+				/>
+			</div>
+			)}
 		</div>
-		)}
-		</div>
-        <Link to="/">
-			<button className="btn btn-primary">Back home</button>
-		</Link>
 	</div>
 	);
 }

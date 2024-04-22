@@ -14,18 +14,15 @@ export const Species = () => {
 	<div className="text-center mt-5">
 		<h1>Species</h1>
 		<div className="row d-flex">
-		{store.species.map((specie, index) => 
-		<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-			<Card 
-			key={index+1}
-			title={specie.name}
-			/>
+			{store.species.map((specie, index) => 
+			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 
+				key={"sp" + index+1}
+				title={specie.name}
+				/>
+			</div>
+			)}
 		</div>
-		)}
-		</div>
-        <Link to="/">
-			<button className="btn btn-primary">Back home</button>
-		</Link>
 	</div>
 	);
 }

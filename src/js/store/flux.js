@@ -19,50 +19,65 @@ const getState = ({ getStore, getActions, setStore }) => {
 			species: [],
 			vehicles: [],
 			films: [],
+			favorites: [],
+			favBoolean: false
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
 			getCharacters: () => {
-				fetch("https://swapi.dev/api/people/")
+				fetch("https://swapi.py4e.com/api/people/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ characters: data.results });
 				});
 			},
 			getStarships: () => {
-				fetch("https://swapi.dev/api/starships/")
+				fetch("https://swapi.py4e.com/api/starships/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ starships: data.results });
 				});
 			},
 			getPlanets: () => {
-				fetch("https://swapi.dev/api/planets/")
+				fetch("https://swapi.py4e.com/api/planets/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ planets: data.results });
 				});
 			},
 			getSpecies: () => {
-				fetch("https://swapi.dev/api/species/")
+				fetch("https://swapi.py4e.com/api/species/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ species: data.results });
 				});
 			},
 			getVehicles: () => {
-				fetch("https://swapi.dev/api/vehicles/")
+				fetch("https://swapi.py4e.com/api/vehicles/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ vehicles: data.results });
 				});
 			},
 			getFilms: () => {
-				fetch("https://swapi.dev/api/films/")
+				fetch("https://swapi.py4e.com/api/films/")
 				.then(response => response.json())
 				.then(data => {
 					setStore({ films: data.results });
 				});
+			},
+			setFavorites: (nameToAdd) => {
+				const nameFound = getStore().favorites.find((element) => element === nameToAdd)
+				if(nameFound === nameToAdd) {
+					const updatedFavorites = getStore().favorites.filter((element) => element !== nameToAdd)
+					setStore({ favorites: updatedFavorites });
+				}
+				else if (nameFound !== nameToAdd) {
+					const updatedFavorites =  [...getStore().favorites, nameToAdd]
+					setStore({ favorites: updatedFavorites });
+				}
+			},
+			setFavBoolean : () => {
+				
 			},
 			loadSomeData: () => {
 				/**

@@ -67,9 +67,9 @@ export const Navbar = () => {
 								<li className="text-center">Empty</li> 
 								:
 								store.favorites.map((favElement, index) =>
-								<li key={"fav" + index+1} className="d-flex align-items-center me-2">
+								<li key={"fav" + (index+1)} className="d-flex align-items-center me-2">
 									<a className="dropdown-item" href="#">{favElement}</a>
-									<i onClick={() => actions.setFavorites(favElement)} className="fa-solid fa-dumpster btn"></i>
+									<i onClick={() => actions.removeFavorite(favElement)} className="fa-solid fa-dumpster btn"></i>
 								</li>
 								)
 							}

@@ -12,13 +12,13 @@ export const Planets = () => {
 
 	return (
 	<div className="text-center mt-5">
-		<h1>Planets</h1>
+		<h1 className="text-white">Planets</h1>
 		<div className="row d-flex">
 			{store.planets.map((planet, index) => 
-			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-				<Card 
-				key={"p" + index+1}
+			<div key={"p" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 				
 				title={planet.name}
+				uid={"p" + (index+1)}
 				/>
 			</div>
 			)}

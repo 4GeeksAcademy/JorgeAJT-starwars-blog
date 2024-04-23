@@ -65,19 +65,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ films: data.results });
 				});
 			},
-			setFavorites: (nameToAdd) => {
-				const nameFound = getStore().favorites.find((element) => element === nameToAdd)
-				if(nameFound === nameToAdd) {
-					const updatedFavorites = getStore().favorites.filter((element) => element !== nameToAdd)
-					setStore({ favorites: updatedFavorites });
-				}
-				else if (nameFound !== nameToAdd) {
-					const updatedFavorites =  [...getStore().favorites, nameToAdd]
-					setStore({ favorites: updatedFavorites });
-				}
+			addFavorite: (nameToAdd) => {
+				const updatedFavorites =  [...getStore().favorites, nameToAdd]
+				setStore({ favorites: updatedFavorites });
+				setStore({ favBoolean: true });
 			},
-			setFavBoolean : () => {
-				
+			removeFavorite: (nameToRemove) => {
+				const nameFound = getStore().favorites.find((element) => element === nameToRemove)
+				if(nameFound === nameToRemove) {
+					const updatedFavorites = getStore().favorites.filter((element) => element !== nameToRemove)
+					setStore({ favorites: updatedFavorites });
+					setStore({ favBoolean: false });
+				}
 			},
 			loadSomeData: () => {
 				/**

@@ -12,13 +12,13 @@ export const Species = () => {
 
 	return (
 	<div className="text-center mt-5">
-		<h1>Species</h1>
+		<h1 className="text-white">Species</h1>
 		<div className="row d-flex">
 			{store.species.map((specie, index) => 
-			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-				<Card 
-				key={"sp" + index+1}
+			<div key={"e" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 				
 				title={specie.name}
+				uid={"e" + (index+1)}
 				/>
 			</div>
 			)}

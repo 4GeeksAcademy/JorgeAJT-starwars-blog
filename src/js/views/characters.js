@@ -12,14 +12,14 @@ export const Characters = () => {
 
 	return (
 	<div className="text-center mt-5">
-		<h1>Characters</h1>
+		<h1 className="text-white">Characters</h1>
 		<div className="row d-flex">
 			{store.characters.map((character, index) => 
-			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
-				<Card 
-				key={"c" + index+1}
+			<div key={"c" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
+				<Card 	
 				image={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${index+1}.jpg`}
 				title={character.name}
+				uid={"c" + (index+1)}
 				/>
 			</div>
 			)}

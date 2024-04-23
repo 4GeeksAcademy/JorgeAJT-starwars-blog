@@ -3,26 +3,55 @@ import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-export const Card = ({ image, title, id }) => {
+export const Card = ({ image, title, uid }) => {
 
     const { store, actions } = useContext(Context);
 
-    const [favStar, setFavStar] = useState("fa-regular fa-star text-warning")
+    const [favStar, setFavStar] = useState("")
+    const [itemSelected, setItemSelected] = useState("")
 
-    const handleButton= (e) => {
-        if(e.target.className === "fa-regular fa-star text-warning") {
-            setFavStar("fa-solid fa-star text-warning") 
-            actions.setFavorites(title)
+    const handleButton= () => {
+        if(store.favorites.includes(title)) {
+            actions.removeFavorite(title)
         } 
         else {
-            setFavStar("fa-regular fa-star text-warning")
-            actions.setFavorites(title)
+            actions.addFavorite(title)
         }
+        console.log(uid);
     }
 
     useEffect(() => {
-        handleButton
+        if(store.favorites.includes(title)) {
+            setFavStar("fa-solid fa-star text-warning") 
+        } else {
+            setFavStar("fa-regular fa-star text-warning") 
+        }
     },[store.favorites])
+
+    const selectCategory = () => {
+        let categorySelected = ""
+        switch(uid[0]) {
+            case "c":
+                categorySelected = "characters"
+                break
+            case "s":
+                categorySelected = "starships"
+                break  
+            case "p":
+                categorySelected = "planets"
+                break    
+            case "e":
+                categorySelected = "species"
+                break
+            case "v":
+                categorySelected = "vehicles"
+                break    
+            case "f":
+                categorySelected = "films"
+                break    
+        }
+        return categorySelected
+    }
 
 	return (
         <div className="card border-0">
@@ -32,7 +61,10 @@ export const Card = ({ image, title, id }) => {
                 <div className="card-text">
                 </div>
                 <div className="d-flex justify-content-between">
-                <a href="#" className="btn btn-warning mt-2">Read more!</a>
+                {}
+                <Link to={`/${selectCategory()}/${uid.slice(1)}`} className="btn btn-warning mt-2">
+					<span>Read more!</span>
+				</Link>
                 <button onClick={handleButton} className="bg-white border-0 fs-4 fav">
                     <i className={favStar}></i>
                 </button>

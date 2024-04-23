@@ -4,6 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Characters } from "./views/characters";
+import { SingleCharacter } from "./views/singleCharacter";
 import { Starships } from "./views/starships";
 import { Planets } from "./views/planets";
 import { Species } from "./views/species";
@@ -29,6 +30,7 @@ const Layout = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/characters/" element={<Characters />} />
+						<Route path="/characters/:character_uid" element={<SingleCharacter />} />
 						<Route path="/starships/" element={<Starships />} />
 						<Route path="/planets/" element={<Planets />} />
 						<Route path="/species/" element={<Species />} />

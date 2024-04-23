@@ -14,14 +14,14 @@ export const Starships = () => {
 
 	return (
 	<div className="text-center mt-5">
-		<h1>Starships</h1>
+		<h1 className="text-white">Starships</h1>
 		<div className="row d-flex">
 			{store.starships.map((starship, index) => 
-			<div className="col-12 col-md-6 col-xl-3 my-xl-2">
+			<div key={"s" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
 				<Card 
-				key={"st" + index+1}
 				image={starship3}
 				title={starship.name}
+				uid={"s" + (index+1)}
 				/>
 			</div>
 			)}

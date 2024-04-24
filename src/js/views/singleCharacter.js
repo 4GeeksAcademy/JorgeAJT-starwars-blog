@@ -13,8 +13,14 @@ export const SingleCharacter = props => {
 
 	useEffect(()=>{
 		fetch(`https://swapi.py4e.com/api/people/${params.character_uid}`)
+		.then(response => {
+			if(response.status == 404) {
+				
+			}
+		})
 		.then(response => response.json())
 		.then(data => {
+			console.log(data);
 			setCharacter(data);
 			getHomeworld(data.homeworld)
 			getSpecie(data.species)
@@ -43,7 +49,7 @@ export const SingleCharacter = props => {
 				setMovies(prevMovies =>[...prevMovies, singleMovie]);
 			});
 	}
-console.log(movies);
+console.log(params);
 	// console.log(store.planets[character.homeworld?.slice(-2, -1) - 1]?.name); // Tatooine
 	return (
 		<div className="container">

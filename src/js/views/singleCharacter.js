@@ -18,9 +18,10 @@ export const SingleCharacter = props => {
 			setCharacter(data);
 			getHomeworld(data.homeworld)
 			getSpecie(data.species)
+			setMovies([])
 			getMovies(data.films)
 		});
-	},[])
+	},[params.character_uid])
 
 	function getHomeworld(planetAPI) {
 		fetch(planetAPI)
@@ -66,7 +67,7 @@ console.log(movies);
 					<span>Previous</span>
 			</Link>
 			}
-			{params.character_uid < 10 &&	
+			{params.character_uid < 87 &&	
 			<Link to={`/characters/${parseInt(params.character_uid) + 1}`} className="btn btn-warning mt-2">
 					<span>Next</span>
 			</Link>

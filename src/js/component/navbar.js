@@ -10,7 +10,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-expand-lg bg-black border-bottom border-body fw-bold" data-bs-theme="dark">
+		<nav className="navbar navbar-expand-md bg-black border-bottom border-body fw-bold" data-bs-theme="dark">
 			<div className="container-fluid flex-column">
 				<div className="d-flex align-items-center">
 				<i className="fa-solid fa-book-journal-whills fs-1"></i>

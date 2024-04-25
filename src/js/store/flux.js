@@ -118,3 +118,36 @@ export default getState;
 //         return parsePlanet(response)
 //     }
 // }
+
+
+
+
+
+// function nextCharacter() {
+// 	setActionToDo("next")
+// }
+
+// function previousCharacter() {
+// 	setActionToDo("previous")
+// }
+
+// function getObject(uid, type){
+// 	return fetch(`https://swapi.py4e.com/api/${type}/${uid}`)
+// }
+
+// function requestUntilValid(type, action) {
+// 	let validResponse = null
+// 	do {
+// 		// hacer una funcion que añada o quite 1 a UID basado en que tipo de ACCION tienes de argumento
+// 		if(action === "next") {
+// 			parseInt(character_uid) + 1
+// 			setActionToDo("")
+// 		}
+// 		else if (action === "previous") {
+// 			parseInt(character_uid) - 1
+// 			setActionToDo("")
+// 		}
+// 		validResponse = getObject(character_uid , type)
+// 	} while(validResponse.status === 404)
+// 	return validResponse
+// }

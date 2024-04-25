@@ -15,7 +15,7 @@ export const Characters = () => {
 		<h1 className="text-white">Characters</h1>
 		<div className="row d-flex">
 			{store.characters.map((character, index) => 
-			<div key={"c" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
+			<div key={"c" + (index+1)} className="col-12 col-md-6 col-xl-2 my-xl-2 offset-xl-1">
 				<Card 	
 				image={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${index+1}.jpg`}
 				title={character.name}

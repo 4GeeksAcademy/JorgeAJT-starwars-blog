@@ -9,50 +9,20 @@ export const SingleCharacter = props => {
 	const [homeworld, setHomeworld] = useState("")
 	const [specie, setSpecie] = useState("")
 	const [movies, setMovies] = useState([])
-	const [actionToDo, setActionToDo] = useState("")
 	const { character_uid } = useParams();
 
-	function nextCharacter() {
-		setActionToDo("next")
-	}
-
-	function previousCharacter() {
-		setActionToDo("previous")
-	}
-
-	function getObject(uid, type){
-		return fetch(`https://swapi.py4e.com/api/${type}/${uid}`)
-	}
-	
-	function requestUntilValid(type, action) {
-		let validResponse = null
-		do {
-			// hacer una funcion que añada o quite 1 a UID basado en que tipo de ACCION tienes de argumento
-			if(action === "next") {
-				parseInt(character_uid) + 1
-				setActionToDo("")
-			}
-			else if (action === "previous") {
-				parseInt(character_uid) - 1
-				setActionToDo("")
-			}
-			validResponse = getObject(character_uid , type)
-		} while(validResponse.status === 404)
-		return validResponse
-	}
 
 	useEffect(()=>{
-		requestUntilValid("people", actionToDo)
+		fetch(`https://swapi.py4e.com/api/people/${character_uid}`)
 		.then(response => response.json())
 		.then(data => {
-			console.log(data);
 			setCharacter(data);
 			getHomeworld(data.homeworld)
 			getSpecie(data.species)
 			setMovies([])
 			getMovies(data.films)
 		});
-	},[character_uid])
+	},[])
 
 	function getHomeworld(planetAPI) {
 		fetch(planetAPI)
@@ -75,7 +45,6 @@ export const SingleCharacter = props => {
 			});
 	}
 
-	// console.log(store.planets[character.homeworld?.slice(-2, -1) - 1]?.name); // Tatooine
 	return (
 		<div className="container">
 			<div className="d-flex justify-content-center mt-5">
@@ -94,18 +63,6 @@ export const SingleCharacter = props => {
 						)}
 					</div>
 				</div>
-			</div>
-			<div className="d-flex justify-content-center mt-4">
-			{character_uid != 1 &&			
-			<Link to={`/characters/${character_uid}`} className="btn btn-warning mt-2 mx-2" onClick={previousCharacter}>
-					<span>Previous</span>
-			</Link>
-			}
-			{character_uid < 87 &&	
-			<Link to={`/characters/${character_uid}`} className="btn btn-warning mt-2" onClick={nextCharacter}>
-					<span>Next</span>
-			</Link>
-			}
 			</div>
 		</div>
 	);

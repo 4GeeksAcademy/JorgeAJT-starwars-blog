@@ -8,7 +8,6 @@ export const Card = ({ image, title, uid }) => {
     const { store, actions } = useContext(Context);
 
     const [favStar, setFavStar] = useState("")
-    const [itemSelected, setItemSelected] = useState("")
 
     const handleButton= () => {
         if(store.favorites.includes(title)) {

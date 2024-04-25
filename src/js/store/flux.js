@@ -94,3 +94,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 };
 
 export default getState;
+
+
+
+// pseudo codigo para aprender a generalizar
+// function parseCharacter(response) {
+//     return {
+//         "character_name": response.name
+//     }
+// }
+
+// function parsePlanet(response){
+//     return {
+//         "nombre_planeta": response.planeta
+//     }
+// }
+
+// function parseAny(type = "", response) {
+//     if (type == "character") {
+//         return parseCharacter(response)
+//     }
+//     if (tye == "planet") {
+//         return parsePlanet(response)
+//     }
+// }

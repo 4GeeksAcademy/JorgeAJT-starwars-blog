@@ -8,18 +8,23 @@ import { Card } from "../component/card";
 import "../../styles/home.css";
 
 export const Starships = () => {
-	const { store, actions } = useContext(Context);
+	const { store, actions } = useContext(Context)
+	const [starshipUids, setStarshipsUids] = useState([])
+
+	useEffect(() => {
+		setStarshipsUids(actions.getUID("starships"))
+	},[store.starships])
 
 	return (
 	<div className="text-center mt-5">
 		<h1 className="text-white">Starships</h1>
-		<div className="row d-flex">
+		<div className="row d-flex justify-content-center">
 			{store.starships.map((starship, index) => 
 			<div key={"s" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">
-				<Card 
-				
+				<Card 	
+				image={`https://raw.githubusercontent.com/4GeeksAcademy/JorgeAJT-starwars-blog/master/src/img/starships/s${starshipUids[index]}.jpg`}
 				title={starship.name}
-				uid={"s" + (index+1)}
+				uid={"s" + starshipUids[index]}
 				/>
 			</div>
 			)}

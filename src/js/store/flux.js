@@ -65,6 +65,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ films: data.results });
 				});
 			},
+			getUID: (category) => {
+				return getStore()[category].map(element => { 
+					 let urlArr = element.url?.split("/");
+					 return urlArr[urlArr.length - 2];
+					});
+			}, 
 			addFavorite: (nameToAdd) => {
 				const updatedFavorites =  [...getStore().favorites, nameToAdd]
 				setStore({ favorites: updatedFavorites });

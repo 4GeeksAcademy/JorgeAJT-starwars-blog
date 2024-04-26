@@ -48,7 +48,7 @@ export const SingleCharacter = props => {
 	return (
 		<div className="container">
 			<div className="d-flex justify-content-center mt-5">
-				<img src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/master/build/assets/img/characters/${character_uid}.jpg`}/>
+				<img src={`https://raw.githubusercontent.com/4GeeksAcademy/JorgeAJT-starwars-blog/master/src/img/characters/c${character_uid}.jpg`} className="rounded-4"/>
 				<div className="text-white ms-5">
 					<p>Name: {character.name}</p>
 					<p>Height: {character.height}</p>

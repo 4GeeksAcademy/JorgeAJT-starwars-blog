@@ -1,18 +1,6 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
 			characters: [],
 			starships: [],
 			planets: [],
@@ -20,7 +8,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			vehicles: [],
 			films: [],
 			favorites: [],
-			favBoolean: false
 		},
 		actions: {
 			getCharacters: () => {
@@ -71,18 +58,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					 return urlArr[urlArr.length - 2];
 					});
 			}, 
-			addFavorite: (nameToAdd) => {
-				const updatedFavorites =  [...getStore().favorites, nameToAdd]
-				setStore({ favorites: updatedFavorites });
-				setStore({ favBoolean: true });
-			},
-			removeFavorite: (nameToRemove) => {
-				const nameFound = getStore().favorites.find((element) => element === nameToRemove)
-				if(nameFound === nameToRemove) {
-					const updatedFavorites = getStore().favorites.filter((element) => element !== nameToRemove)
-					setStore({ favorites: updatedFavorites });
-					setStore({ favBoolean: false });
+			selectCategory: (uidToAnalyze) => {
+				let categorySelected = ""
+				switch(uidToAnalyze[0]) {
+					case "c":
+						categorySelected = "characters"
+						break
+					case "s":
+						categorySelected = "starships"
+						break  
+					case "p":
+						categorySelected = "planets"
+						break    
+					case "e":
+						categorySelected = "species"
+						break
+					case "v":
+						categorySelected = "vehicles"
+						break    
+					case "f":
+						categorySelected = "films"
+						break    
 				}
+				return categorySelected
+			},
+			addFavorite: (nameToAdd, uidToAdd) => {
+				const updatedFavorites =  [...getStore().favorites, {title: nameToAdd, uid: uidToAdd }]
+				setStore({ favorites: updatedFavorites });
+			},
+			removeFavorite: (uidToRemove) => {
+				const updatedFavorites = getStore().favorites.filter((favorite) => {
+					return !(favorite.uid === uidToRemove);
+				});
+				setStore({ favorites: updatedFavorites });
 			},
 			loadSomeData: () => {
 				/**

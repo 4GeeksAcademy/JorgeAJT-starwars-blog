@@ -6,11 +6,15 @@ import { Home } from "./views/home";
 import { Characters } from "./views/characters";
 import { SingleCharacter } from "./views/singleCharacter";
 import { Starships } from "./views/starships";
+import { SingleStarship } from "./views/singleStarship";
 import { Planets } from "./views/planets";
+import { SinglePlanet } from "./views/singlePlanet";
 import { Species } from "./views/species";
+import { SingleSpecie } from "./views/singleSpecie";
 import { Vehicles } from "./views/vehicles";
+import { SingleVehicle } from "./views/singleVehicle";
 import { Films } from "./views/films";
-import { Single } from "./views/single";
+import { SingleFilm } from "./views/singleFilm";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -32,12 +36,16 @@ const Layout = () => {
 						<Route path="/characters/" element={<Characters />} />
 						<Route path="/characters/:character_uid" element={<SingleCharacter />} />
 						<Route path="/starships/" element={<Starships />} />
+						<Route path="/starships/:starship_uid" element={<SingleStarship />} />
 						<Route path="/planets/" element={<Planets />} />
+						<Route path="/planets/:planet_uid" element={<SinglePlanet />} />
 						<Route path="/species/" element={<Species />} />
+						<Route path="/species/:specie_uid" element={<SingleSpecie />} />
 						<Route path="/vehicles/" element={<Vehicles />} />
+						<Route path="/vehicles/:vehicle_uid" element={<SingleVehicle />} />
 						<Route path="/films/" element={<Films />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
+						<Route path="/films/:film_uid" element={<SingleFilm />} />
+						<Route path="*" element={<h1 className="title text-center text-white mt-5">Not found!</h1>} />
 					</Routes>
 					<Footer />
 				</ScrollToTop>

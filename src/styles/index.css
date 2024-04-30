@@ -13,3 +13,43 @@ body {
 .items-left {
     background-color: #ffc107;
  }
+ .single-img {
+    height: fit-content;
+    padding: 30px 30px 30px 0px;
+ }
+ .single-view {
+  background: radial-gradient(circle, rgb(0 0 0) 0%, rgb(0 0 0 / 96%) 50%, rgb(0 0 0 / 54%) 100%);
+    width: fit-content;
+    margin: auto;
+ }
+ .single-view-mobile {
+  background: radial-gradient(circle, rgb(0 0 0) 0%, rgb(0 0 0 / 96%) 50%, rgb(0 0 0 / 54%) 100%);
+  margin: auto;
+ }
+ .title {
+    font-family: 'Star Wars', sans-serif;
+ }
+ .btn-warning:hover {
+  background-color: #ffe79f;
+  border-color: #ffe79f;
+  text-decoration: none;
+ }
+ .card {
+    background: #171717;
+    transition: 1s ease-in-out;
+    clip-path: polygon(
+      30px 0%,
+      100% 0,
+      100% calc(100% - 30px),
+      calc(100% - 30px) 100%,
+      0 100%,
+      0% 30px
+    );
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .fav {
+    background-color: #171717;
+  }

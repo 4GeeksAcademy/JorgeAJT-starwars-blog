@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
 import { Context } from "../store/appContext";
-
 import { Card } from "../component/card";
-
-import "../../styles/home.css";
 
 export const Characters = () => {
 	const { store, actions } = useContext(Context);
@@ -17,7 +12,7 @@ export const Characters = () => {
 
 	return (
 	<div className="text-center mt-5">
-		<h1 className="text-white">Characters</h1>
+		<h1 className="text-white title">Characters</h1>
 		<div className="row d-flex justify-content-center">
 			{store.characters.map((character, index) => 
 			<div key={"c" + (index+1)} className="col-12 col-md-6 col-xl-3 my-xl-2">

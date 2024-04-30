@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-
-import { Context } from "../store/appContext";
+import React from "react";
 
 import "../../styles/home.css";
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
-
 	return (
 		<>
-		<div className="text-center mt-5 mb-5 text-home">
-			<h1>Hello There! This is the Star wars Blog!</h1>
-			<h3>May the Force be with you</h3>
+		<div className="text-center mt-5 mb-5 text-home single-view">
+			<h1>Hello There! This is my Star Wars Blog!</h1>
+			<h3 className="mt-3">May the Force be with you</h3>
 		</div>
 		{/* ANIMATE VADER */}
 		<div className="vader-position">

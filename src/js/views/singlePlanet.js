@@ -29,8 +29,6 @@ export const SinglePlanet = props => {
         }))
     }
 
-    console.log(residents);
-
 	return (
 		<div className="container mb-5">
 			{isMobile ? 

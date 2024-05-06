@@ -11,7 +11,7 @@ export const Characters = () => {
 	},[store.characters])
 
 	return (
-	<div className="text-center mt-5">
+	<div className="text-center">
 		<h1 className="text-white title">Characters</h1>
 		<div className="row d-flex justify-content-center">
 			{store.characters.map((character, index) => 
